@@ -19,6 +19,13 @@ books.post('/', (req, res)=>{
   })
 })
 
+//SEED
+
+books.get('/seed', (req, res) => {
+  Books.insertMany(booksSeed, (err, manyBooks) => {
+    res.redirect('/')
+  })
+})
 
 
 module.exports = books
