@@ -10,6 +10,15 @@ books.get('/', (req, res)=>{
   })
 })
 
+//POST
+books.post('/', (req, res)=>{
+  Books.create(req.body, (err, createBooks)=>{
+    Books.find({}, (err, foundBooks)=>{
+      res.json(foundBooks)
+    })
+  })
+})
+
 
 
 module.exports = books
