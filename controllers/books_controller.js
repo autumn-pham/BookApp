@@ -38,6 +38,16 @@ books.put('/:id', (req, res) => {
   )
 })
 
+//DELETE
+
+books.delete('/:id', (req, res) => {
+  Books.findByIdAndRemove(req.params.id, (err, deleteBooks) => {
+    Books.find({}, (err, foundBooks) => {
+      res.json(foundBooks)
+    })
+  })
+})
+
 //SEED
 
 books.get('/seed', (req, res) => {
