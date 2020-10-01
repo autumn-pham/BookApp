@@ -1,3 +1,41 @@
+class Input extends React.Component {
+  state = {
+    book: {}
+  }
+  findBook = (event) => {
+        event.preventDefault();
+        event.target.reset()
+        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + this.state.name + '&key=AIzaSyB%20AZFHPTcUSvMx_Gx5Cd5tcQLP2c72htwA').then(
+            (data) => {
+                this.setState(
+                    {
+                        googleBook: data.data,
+                    }
+                )
+            }
+        )
+    }
+
+    changeName = (event) => {
+        this.setState(
+            {
+                name: event.target.value
+            }
+        )
+    }
+  render = () => {
+    console.log(data.data.items)
+    return (
+      <div>
+        <form onSubmit={this.findBook}>
+          <input type="text" onKeyUp={this.changeName}/>
+          <input type="submit" value="Find Book"/>
+        </form>
+      </div>
+    )
+  }
+}
+
 class App extends React.Component {
   state = {
     title: '',
@@ -153,6 +191,7 @@ class App extends React.Component {
           ) } ) }
           </div>
           </div>
+          <Input book={this.state.data}></Input>
           </div>
     )
   }
