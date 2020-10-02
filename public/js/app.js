@@ -1,40 +1,4 @@
-class Input extends React.Component {
-  state = {
-    book: {}
-  }
-  findBook = (event) => {
-        event.preventDefault();
-        event.target.reset()
-        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + this.state.name + '&key=AIzaSyB%20AZFHPTcUSvMx_Gx5Cd5tcQLP2c72htwA').then(
-            (data) => {
-                this.setState(
-                    {
-                        googleBook: data.data,
-                    }
-                )
-            }
-        )
-    }
 
-    changeName = (event) => {
-        this.setState(
-            {
-                name: event.target.value
-            }
-        )
-    }
-  render = () => {
-    console.log(data.data.items)
-    return (
-      <div>
-        <form onSubmit={this.findBook}>
-          <input type="text" onKeyUp={this.changeName}/>
-          <input type="submit" value="Find Book"/>
-        </form>
-      </div>
-    )
-  }
-}
 
 class App extends React.Component {
   state = {
@@ -43,7 +7,8 @@ class App extends React.Component {
     description: '',
     thumbnail: '',
     averageRating: 0,
-    books: []
+    books: [],
+    googleBook: {}
   }
   handleChange = event => {
     this.setState({ [event.target.id]: event.target.value })
@@ -94,6 +59,32 @@ class App extends React.Component {
       })
     })
   }
+  findBook = (event) => {
+    event.preventDefault();
+      event.target.reset()
+        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + this.state.name + '&key=AIzaSyB%20AZFHPTcUSvMx_Gx5Cd5tcQLP2c72htwA').then(
+          (data) => {
+            console.log(data.data.items[0].volumeInfo)
+              this.setState(
+                {
+                  googleBook: data.data.items[0].volumeInfo,
+                  googleTitle: data.data.items[0].volumeInfo.title,
+                  googleAuthors: data.data.items[0].volumeInfo.authors[0],
+                  googleImage: data.data.items[0].volumeInfo.imageLinks.thumbnail,
+                  googleDescription: data.data.items[0].volumeInfo.description,
+                  googleAverageRating: data.data.items[0].volumeInfo.averageRating
+                }
+              )
+            }
+        )
+    }
+    changeName = (event) => {
+      this.setState(
+            {
+              name: event.target.value
+            }
+      )
+    }
   render = () => {
     return (
       <div>
@@ -131,7 +122,7 @@ class App extends React.Component {
                 <h5>{book.authors}</h5>
                 <img src={book.thumbnail} className="card-img book-img"/> <br />
                 <h6>{book.description}</h6> <br />
-                <h6>{book.averageRating}</h6> <br />
+                <h6>Average Rating: {book.averageRating}</h6> <br />
                 <details>
                   <summary>EDIT</summary>
                   <form id={book._id} onSubmit={this.updateBook}>
@@ -191,11 +182,35 @@ class App extends React.Component {
           ) } ) }
           </div>
           </div>
-          <Input book={this.state.data}></Input>
+          <div className="googleBooksInput">
+            <form onSubmit={this.findBook}>
+              <input type="text" onKeyUp={this.changeName}/>
+              <input type="submit" value="Find Book"/>
+            </form>
           </div>
+          <div className="googleBook">
+            <dl>
+            <dt>Title</dt>
+            <dd>{this.state.googleTitle}</dd>
+
+            <dt>Author(s)</dt>
+            <dd>{this.state.googleAuthors}</dd>
+
+            <dd><img src={this.state.googleImage} /></dd>
+
+            <dt>Description</dt>
+            <dd>{this.state.googleDescription}</dd>
+
+            <dt>Rating</dt>
+            <dd>{this.state.googleAverageRating}</dd>
+            </dl>
+          </div>
+      </div>
     )
   }
 }
+
+
 
 
 ReactDOM.render(
