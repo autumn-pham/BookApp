@@ -1,5 +1,4 @@
 
-
 class App extends React.Component {
   state = {
     title: '',
@@ -72,7 +71,7 @@ class App extends React.Component {
                   googleAuthors: data.data.items[0].volumeInfo.authors[0],
                   googleImage: data.data.items[0].volumeInfo.imageLinks.thumbnail,
                   googleDescription: data.data.items[0].volumeInfo.description,
-                  googleAverageRating: data.data.items[0].volumeInfo.averageRating
+                  googleAverageRating: data.data.items[0].volumeInfo.averageRating,
                 }
               )
             }
