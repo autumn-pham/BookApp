@@ -122,7 +122,7 @@ class App extends React.Component {
                 <h5>{book.authors}</h5>
                 <img src={book.thumbnail} className="card-img book-img"/> <br />
                 <h6>{book.description}</h6> <br />
-                <h6>Average Rating: {book.averageRating}</h6> <br />
+                <h6>Average Rating: {book.averageRating} ⭐</h6> <br />
                 <details>
                   <summary>EDIT</summary>
                   <form id={book._id} onSubmit={this.updateBook}>
@@ -202,7 +202,7 @@ class App extends React.Component {
             <dd>{this.state.googleDescription}</dd>
 
             <dt>Rating</dt>
-            <dd>{this.state.googleAverageRating}</dd>
+            <dd>{this.state.googleAverageRating} ⭐</dd>
             </dl>
           </div>
       </div>
