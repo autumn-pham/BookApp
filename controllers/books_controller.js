@@ -19,6 +19,35 @@ books.post('/', (req, res)=>{
   })
 })
 
+//PUT
+
+books.put('/:id', (req, res) => {
+  Books.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updateBooks) => {
+      if (err) {
+        res.send(err)
+      } else {
+        Books.find({}, (err, foundBooks) => {
+          res.json(foundBooks)
+        })
+      }
+    }
+  )
+})
+
+//DELETE
+
+books.delete('/:id', (req, res) => {
+  Books.findByIdAndRemove(req.params.id, (err, deleteBooks) => {
+    Books.find({}, (err, foundBooks) => {
+      res.json(foundBooks)
+    })
+  })
+})
+
 //SEED
 
 books.get('/seed', (req, res) => {
