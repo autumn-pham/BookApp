@@ -86,107 +86,151 @@ class App extends React.Component {
     }
   render = () => {
     return (
-      <div>
-        <form className="book-form" onSubmit={this.handleSubmit}>
-          <label htmlFor="title">TITLE:</label>
-          <br />
-          <input type="text" id="title" onChange={this.handleChange} />
-          <br />
-          <label htmlFor="authors">AUTHORS:</label>
-          <br />
-          <input type="text" id="authors" onChange={this.handleChange} />
-          <br />
-          <label htmlFor="description">DESCRIPTION</label>
-          <br />
-          <input type="text" id="description" onChange={this.handleChange} />
-          <br />
-          <label htmlFor="thumbnail">IMAGE LINK:</label>
-          <br />
-          <input type="text" id="thumbnail" onChange={this.handleChange} />
-          <br />
-          <label htmlFor="averageRating">RATING:</label>
-          <br />
-          <input type="text" id="averageRating" onChange={this.handleChange} />
-          <br />
-          <input type="submit" value="ADD A BOOK" />
-        </form>
-        <h2>STAFF RECOMMENDATIONS</h2>
-        <div className="book-container">
-        <div className="row row-cols-2">
-          { this.state.books.map( book => { return (
-              <div className="col mb-2">
-              <div className="card book-card h-100">
-              <div className="card-body" key={book._id}>
-                <h3>{book.title}</h3> <br />
-                <h5>{book.authors}</h5>
-                <img src={book.thumbnail} className="card-img book-img"/> <br />
-                <h6>{book.description}</h6> <br />
-                <h6>Average Rating: {book.averageRating} ⭐</h6> <br />
-                <details>
-                  <summary>EDIT</summary>
-                  <form id={book._id} onSubmit={this.updateBook}>
-                    <label htmlFor="title">Title</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="title"
-                      onChange={this.handleChange}
-                      value={this.state.title}
-                    />
-                    <br />
-                    <label htmlFor="authors">Authors</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="authors"
-                      onChange={this.handleChange}
-                      value={this.state.authors}
-                    />
-                    <br />
-                    <label htmlFor="thumbnail">Image</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="thumbnail"
-                      onChange={this.handleChange}
-                      value={this.state.thumbnail}
-                    />
-                    <br />
-                    <label htmlFor="description">Description</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="description"
-                      onChange={this.handleChange}
-                      value={this.state.description}
-                    />
-                    <label htmlFor="averageRating">Rating</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="averageRating"
-                      onChange={this.handleChange}
-                      value={this.state.averageRating}
-                    />
-                    <input type="submit" value="UPDATE" />
-                  </form>
-                </details>
-                <button value={book._id} onClick={this.deleteBook}>
-                  DELETE
-                </button>
+      <div className="main-div">
 
+        <nav>
+          <div className="nav-wrapper">
+            <h1>BOOKS</h1>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li><button className="nav-button">Sign-in</button></li>
+              <li><button className="nav-button">Sign-up</button></li>
+            </ul>
+          </div>
+        </nav>
+
+        <h3>STAFF RECOMMENDATIONS</h3>
+        <div className="favs-container">
+          <div className="row">
+          <h5>Autumn's Favs</h5>
+            { this.state.books.map( (book, index) => { return (
+              <div className="Autumn">
+                {
+                  (index >= 0 && index < 2) ? book.title : ""
+                }
               </div>
-            </div>
+            ) } ) }
+          </div>
         </div>
-          ) } ) }
+
+        <h3>YOUR READING LIST</h3>
+        <div className="book-container">
+
+          <div className="book-image-div">
+            <img src="https://i.imgur.com/UWxZc3X.jpg?" className="book-image"/>
           </div>
+
+          <div className="row">
+
+            { this.state.books.map( book => { return (
+
+              <div className="card" key={book._id}>
+
+                <div className="thumbnail card-image waves-effect waves-block waves-light">
+                  <img className="activator" src={book.thumbnail}/>
+                </div>
+
+                <div className="card-reveal">
+                  <span className="card-title grey-text text-darken-4">{book.title}<i className="material-icons right">close</i></span>
+                  <p>{book.authors} </p>
+                  <p>{book.description} </p>
+                  <p>Average Rating: {book.averageRating} ⭐</p>
+
+                    <details>
+                      <summary>EDIT</summary>
+                      <form id={book._id} onSubmit={this.updateBook}>
+                        <label htmlFor="title">Title</label>
+                        <br />
+                        <input
+                          type="text"
+                          id="title"
+                          onChange={this.handleChange}
+                          value={this.state.title}
+                        />
+                        <br />
+                        <label htmlFor="authors">Authors</label>
+                        <br />
+                        <input
+                          type="text"
+                          id="authors"
+                          onChange={this.handleChange}
+                          value={this.state.authors}
+                        />
+                        <br />
+                        <label htmlFor="thumbnail">Image</label>
+                        <br />
+                        <input
+                          type="text"
+                          id="thumbnail"
+                          onChange={this.handleChange}
+                          value={this.state.thumbnail}
+                        />
+                        <br />
+                      <label htmlFor="description">Description</label>
+                      <br />
+                      <input
+                        type="text"
+                        id="description"
+                        onChange={this.handleChange}
+                        value={this.state.description}
+                      />
+                      <label htmlFor="averageRating">Rating</label>
+                      <br />
+                      <input
+                        type="text"
+                        id="averageRating"
+                        onChange={this.handleChange}
+                        value={this.state.averageRating}
+                      />
+                      <input type="submit" value="UPDATE" />
+                    </form>
+                  </details>
+                  <button value={book._id} onClick={this.deleteBook}>
+                    DELETE
+                  </button>
+
+                </div>
+              </div>
+            ) } ) }
           </div>
+        </div>
+
+        <div className="new-book">
+          <details>
+            <summary><button className="add-button">Add a Book</button></summary>
+            <form className="new-book-form" onSubmit={this.handleSubmit}>
+              <label htmlFor="title">TITLE:</label>
+              <br />
+              <input type="text" id="title" onChange={this.handleChange} />
+              <br />
+              <label htmlFor="authors">AUTHORS:</label>
+              <br />
+              <input type="text" id="authors" onChange={this.handleChange} />
+              <br />
+              <label htmlFor="description">DESCRIPTION</label>
+              <br />
+              <input type="text" id="description" onChange={this.handleChange} />
+              <br />
+              <label htmlFor="thumbnail">IMAGE LINK:</label>
+              <br />
+              <input type="text" id="thumbnail" onChange={this.handleChange} />
+              <br />
+              <label htmlFor="averageRating">RATING:</label>
+              <br />
+              <input type="text" id="averageRating" onChange={this.handleChange} />
+              <br />
+              <input type="submit" value="ADD A BOOK" />
+            </form>
+          </details>
+        </div>
+
+        <div className="findBookContainer">
           <div className="googleBooksInput">
             <form onSubmit={this.findBook}>
               <input type="text" onKeyUp={this.changeName}/>
               <input type="submit" value="Find Book"/>
             </form>
           </div>
+
           <div className="googleBook">
             <dl>
             <dt>Title</dt>
@@ -204,13 +248,16 @@ class App extends React.Component {
             <dd>{this.state.googleAverageRating} ⭐</dd>
             </dl>
           </div>
+        </div>
+
+        <div className="footer">
+          <h3>Footer text</h3>
+        </div>
+
       </div>
     )
   }
 }
-
-
-
 
 ReactDOM.render(
     <App></App>,
