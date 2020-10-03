@@ -37,8 +37,13 @@ app.use(express.static('public'))
 
 //ROUTES
 const booksController = require('./controllers/books_controller.js')
+const alisonController = require('./controllers/alison_controller.js')
+const autumnController = require('./controllers/autumn_controller.js')
+const caroleController = require('./controllers/carole_controller.js')
 app.use('/books', booksController)
-
+app.use('/alison', alisonController)
+app.use('/autumn', autumnController)
+app.use('/carole', caroleController)
 
 
 // LISTENER
