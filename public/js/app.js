@@ -7,14 +7,33 @@ class App extends React.Component {
     thumbnail: '',
     averageRating: 0,
     books: [],
-    googleBook: {}
+    googleBook: {},
+    alison: [],
+    autumn: [],
+    carole: [],
+    titleOne: '',
+    authorOne: '',
+    infoOne: '',
+    imgOne: '',
+    ratingOne: 0,
+    autumn: [],
+    titleTwo: '',
+    authorTwo: '',
+    infoTwo: '',
+    imgTwo: '',
+    ratingTwo: 0,
+    carole: [],
+    titleThree: '',
+    authorThree: '',
+    infoThree: '',
+    imgThree: '',
+    ratingThree: ''
   }
   handleChange = event => {
     this.setState({ [event.target.id]: event.target.value })
   }
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.state)
     axios
     .post('/books', this.state)
     .then(response =>
@@ -35,6 +54,27 @@ class App extends React.Component {
       this.setState({
         books: response.data
       })
+    })
+    axios
+    .get('/alison').then(alisonresponse => {
+      this.setState(
+        {
+          alison: alisonresponse.data
+        })
+    })
+    axios
+    .get('/autumn').then(autumnresponse => {
+      this.setState(
+        {
+          autumn: autumnresponse.data
+        })
+    })
+    axios
+    .post('/carole').then(caroleresponse => {
+      this.setState(
+        {
+          carole: caroleresponse.data
+        })
     })
   }
   deleteBook = event => {
@@ -98,18 +138,60 @@ class App extends React.Component {
           </div>
         </nav>
 
-        <h3>STAFF RECOMMENDATIONS</h3>
-        <div className="favs-container">
+        <h3>STAFF PICKS</h3>
+        <div className="staff-picks">
+
+        <div className="alison-container">
           <div className="row">
-          <h5>Autumn's Favs</h5>
-            { this.state.books.map( (book, index) => { return (
-              <div className="Autumn">
-                {
-                  (index >= 0 && index < 2) ? book.title : ""
-                }
+          <h5>Alison's</h5>
+            { this.state.alison.map( (alison) => { return (
+              <div className="alison" key={alison._id}>
+                <div className="card">
+                <p>{alison.titleOne}</p>
+                <p>{alison.authorOne}</p>
+                <img src={alison.imgOne} />
+                <p>{alison.infoOne}</p>
+                <p>{alison.ratingOne} ⭐</p>
+                </div>
               </div>
             ) } ) }
           </div>
+        </div>
+
+        <div className="autumn-container">
+          <div className="row">
+          <h5>Autumn's</h5>
+            { this.state.autumn.map( (autumn) => { return (
+              <div className="autumn" key={autumn._id}>
+                <div className="card">
+                <p>{autumn.titleTwo}</p>
+                <p>{autumn.authorTwo}</p>
+                <img src={autumn.imgTwo} />
+                <p>{autumn.infoTwo}</p>
+                <p>{autumn.ratingTwo} ⭐</p>
+                </div>
+              </div>
+            ) } ) }
+          </div>
+        </div>
+
+        <div className="carole-container">
+          <div className="row">
+          <h5>Carole's</h5>
+            { this.state.carole.map( (carole) => { return (
+              <div className="carole" key={carole._id}>
+                <div className="card">
+                <p>{carole.titleThree}</p>
+                <p>{carole.authorThree}</p>
+                <img src={carole.imgThree} />
+                <p>{carole.infoThree}</p>
+                <p>{carole.ratingThree} ⭐</p>
+                </div>
+              </div>
+            ) } ) }
+          </div>
+        </div>
+
         </div>
 
         <h3>YOUR READING LIST</h3>
