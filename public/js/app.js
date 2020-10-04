@@ -147,7 +147,7 @@ class App extends React.Component {
           <div className="row-staff-picks">
 
             <div className="alison-container">
-            <div className="header-footer">
+            <div className="header-card">
               <h5>Alison's</h5>
             </div>
               { this.state.alison.map( (alison) => { return (
@@ -166,13 +166,10 @@ class App extends React.Component {
                   </div>
                 </div>
               ) } ) }
-              <div className="header-footer">
-                <h5>footer-social media?</h5>
-              </div>
             </div>
 
             <div className="autumn-container">
-            <div className="header-footer">
+            <div className="header-card">
               <h5>Autumn's</h5>
             </div>
               { this.state.autumn.map( (autumn) => { return (
@@ -191,13 +188,10 @@ class App extends React.Component {
                   </div>
                 </div>
               ) } ) }
-              <div className="header-footer">
-                <h5>footer-social media?</h5>
-              </div>
             </div>
 
             <div className="carole-container">
-              <div className="header-footer">
+              <div className="header-card">
                 <h5>Carole's</h5>
               </div>
               { this.state.carole.map( (carole) => { return (
@@ -216,9 +210,6 @@ class App extends React.Component {
                   </div>
                 </div>
               ) } ) }
-              <div className="header-footer">
-                <h5>footer-social media?</h5>
-              </div>
             </div>
         </div>
 
@@ -371,7 +362,13 @@ class App extends React.Component {
         </div>
 
         <div className="footer">
-          <h3>Footer text</h3>
+          <a href="h#"><i className="fab fa-facebook-square fa-3x fa-fw"></i></a>
+
+          <a href="#" target="_top"><i className="fas fa-envelope fa-3x fa-fw" target="_blank"></i></a>
+
+          <a href="#" target="_blank"><i className="fab fa-instagram-square fa-3x fa-fw"></i></a>
+
+          <a href="#" target="_blank"><i className="fab fa-twitter-square fa-3x fa-fw"></i></a>
         </div>
 
       </div>
