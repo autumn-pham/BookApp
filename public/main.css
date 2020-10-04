@@ -1,7 +1,7 @@
 /* ========= MAIN CONTAINER ========= */
 .container {
-  width: 90%;
-  background-color: #dbbe9e;
+  width: 100%;
+  background-color: #ffecb3;
   font-family: 'Quicksand', sans-serif;
   font-size: 1em;
 }
@@ -29,18 +29,51 @@
   color: #dbbe9e;
 }
 
-/* ========= FAV CONTAINER ========= */
-.row.2 {
-  display:flex;
-  flex-direction: row;
+h1 {
+  margin: 0;
 }
-.favs-container {
-  background-color: #ad372a;
-  color: #ca9c51;
+
+/* =========STAFF PICKS CONTAINER ========= */
+.row-staff-picks{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: ce1f2;
+  color: black;
   font-weight: bold;
-  /* display: flex; */
-  /* flex-direction: row; */
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+.alison-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 5px solid black;
+  width: 33%;
+}
+
+.autumn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 5px solid black;
+  width: 33%;
+}
+
+.carole-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 5px solid black;
+  width: 33%;
+}
+
+.header-footer {
+  width: 100%;
 }
 
 /* ========= BOOK CONTAINER ========= */
@@ -49,7 +82,7 @@
 /* row and image tak 50% of book container */
 /* row is flexed with all the books */
 .book-container {
-  background-color: #dbbe9e;
+  background-color: #ffecb3;
   display: flex;
   flex-direction: row;
 }
@@ -57,7 +90,7 @@
 .book-image-div {
   height 50%;
   width: 50%;
-  border-radius: 5%;
+  /* border-radius: 5%; */
 }
 
 .book-image {
@@ -65,34 +98,21 @@
   width: 100%;
 }
 
-.activator {
-  height 20px;
-  width: 20px;
+.card-image {
+  height 400px;
+  width: 200px;
+  overflow: hidden;
 }
 
-.row {
+/* .card-reveal { */
+  /* overflow: visible !important; */
+/* } */
+
+.row-books {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 50%;
-  height: 50%;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  height: 25%;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  font-size: 1em;
-  overflow: visible !important;
-}
-
-.card-reveal {
-
 }
 
 .thumbnail {
@@ -105,29 +125,31 @@
 .new-book {
   display: flex;
   justify-content: center;
-  background-color: #dbbe9e;
-  width: 40%;
-}
-
-.add-button {
-  /* display: flex; */
-  /* justify-content: center; */
-  background-color: #ca9c51;
+  background-color: #ffecb3;
 }
 
 /* ========= FIND BOOK CONTAINER ========= */
-.findBookContainer {
+input {
+  background-color: red;
+}
+
+.find-book-container {
   display: flex;
   flex-direction: row;
   background-color: #7fb7de;
 }
 
-.google-book {
-  width: 70%;
+.google-books-input {
+  width: 30%
   height: auto;
 }
 
-.googleBooksInput {
-  width: 30%
+.google-book {
+  width: 50%;
+  height: auto;
+}
+
+.google-book-image {
+  width: 20%;
   height: auto;
 }
