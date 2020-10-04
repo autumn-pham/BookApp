@@ -137,8 +137,8 @@ class App extends React.Component {
           <div className="nav-wrapper">
             <h1>BOOKS</h1>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><button className="nav-button">Sign-in</button></li>
-              <li><button className="nav-button-two">Sign-up</button></li>
+              <li><button className="nav-button">Sign In</button></li>
+              <li><button className="nav-button-two">Sign Up</button></li>
             </ul>
           </div>
         </nav>
@@ -309,7 +309,7 @@ class App extends React.Component {
               <br />
               <input type="text" id="authors" onChange={this.handleChange} />
               <br />
-              <label htmlFor="description">DESCRIPTION</label>
+              <label htmlFor="description">DESCRIPTION:</label>
               <br />
               <input type="text" id="description" onChange={this.handleChange} />
               <br />
