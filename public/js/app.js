@@ -116,6 +116,7 @@ class App extends React.Component {
                   googleImage: data.data.items[0].volumeInfo.imageLinks.thumbnail,
                   googleDescription: data.data.items[0].volumeInfo.description,
                   googleAverageRating: data.data.items[0].volumeInfo.averageRating,
+                  googlePreview: data.data.items[0].volumeInfo.previewLink
                 }
               )
             }
@@ -136,8 +137,8 @@ class App extends React.Component {
           <div className="nav-wrapper">
             <h1>BOOKS</h1>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><button className="nav-button">Sign-in</button></li>
-              <li><button className="nav-button-two">Sign-up</button></li>
+              <li><button className="nav-button">Sign In</button></li>
+              <li><button className="nav-button-two">Sign Up</button></li>
             </ul>
           </div>
         </nav>
@@ -308,7 +309,7 @@ class App extends React.Component {
               <br />
               <input type="text" id="authors" onChange={this.handleChange} />
               <br />
-              <label htmlFor="description">DESCRIPTION</label>
+              <label htmlFor="description">DESCRIPTION:</label>
               <br />
               <input type="text" id="description" onChange={this.handleChange} />
               <br />
@@ -352,6 +353,7 @@ class App extends React.Component {
               <p>Author(s): {this.state.googleAuthors}</p>
               <p>Description: {this.state.googleDescription}</p>
               <p>Rating: {this.state.googleAverageRating} ⭐</p>
+              <p>Preview: <a href={this.state.googlePreview} target="_blank"><button className="btn-floating pulse">📖</button></a></p>
             </div>
           : ""
          }
