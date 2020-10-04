@@ -116,6 +116,7 @@ class App extends React.Component {
                   googleImage: data.data.items[0].volumeInfo.imageLinks.thumbnail,
                   googleDescription: data.data.items[0].volumeInfo.description,
                   googleAverageRating: data.data.items[0].volumeInfo.averageRating,
+                  googlePreview: data.data.items[0].volumeInfo.previewLink
                 }
               )
             }
@@ -352,6 +353,7 @@ class App extends React.Component {
               <p>Author(s): {this.state.googleAuthors}</p>
               <p>Description: {this.state.googleDescription}</p>
               <p>Rating: {this.state.googleAverageRating} ⭐</p>
+              <p>Preview: <a href={this.state.googlePreview} target="_blank"><button className="btn-floating pulse">📖</button></a></p>
             </div>
           : ""
          }
