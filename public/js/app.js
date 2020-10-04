@@ -1,3 +1,4 @@
+let displayDetailFields=false
 
 class App extends React.Component {
   state = {
@@ -70,7 +71,7 @@ class App extends React.Component {
         })
     })
     axios
-    .post('/carole').then(caroleresponse => {
+    .get('/carole').then(caroleresponse => {
       this.setState(
         {
           carole: caroleresponse.data
@@ -99,6 +100,9 @@ class App extends React.Component {
     })
   }
   findBook = (event) => {
+
+    displayDetailFields=true;
+
     event.preventDefault();
       event.target.reset()
         axios.get('https://www.googleapis.com/books/v1/volumes?q=' + this.state.name + '&key=AIzaSyB%20AZFHPTcUSvMx_Gx5Cd5tcQLP2c72htwA').then(
@@ -138,76 +142,98 @@ class App extends React.Component {
           </div>
         </nav>
 
+
         <h3>STAFF PICKS</h3>
-        <div className="staff-picks">
+          <div className="row-staff-picks">
 
-        <div className="alison-container">
-          <div className="row">
-          <h5>Alison's</h5>
-            { this.state.alison.map( (alison) => { return (
-              <div className="alison" key={alison._id}>
-                <div className="card">
-                <p>{alison.titleOne}</p>
-                <p>{alison.authorOne}</p>
-                <img src={alison.imgOne} />
-                <p>{alison.infoOne}</p>
-                <p>{alison.ratingOne} ⭐</p>
+            <div className="alison-container">
+            <div className="header-footer">
+              <h5>Alison's</h5>
+            </div>
+              { this.state.alison.map( (alison) => { return (
+                <div className="alison" key={alison._id}>
+                  <div className="card">
+                    <div className="card-image waves-effect waves-block waves-light">
+                      <img className="activator" src={alison.imgOne}/>
+                    </div>
+
+                    <div className="card-reveal">
+                      <span className="card-title grey-text text-darken-4">{alison.titleOne}<i className="material-icons right">close</i></span>
+                      <p>{alison.authorOne}</p>
+                      <p>{alison.infoOne}</p>
+                      <p>{alison.ratingOne} ⭐</p>
+                    </div>
+                  </div>
                 </div>
+              ) } ) }
+              <div className="header-footer">
+                <h5>footer-social media?</h5>
               </div>
-            ) } ) }
-          </div>
-        </div>
+            </div>
 
-        <div className="autumn-container">
-          <div className="row">
-          <h5>Autumn's</h5>
-            { this.state.autumn.map( (autumn) => { return (
-              <div className="autumn" key={autumn._id}>
-                <div className="card">
-                <p>{autumn.titleTwo}</p>
-                <p>{autumn.authorTwo}</p>
-                <img src={autumn.imgTwo} />
-                <p>{autumn.infoTwo}</p>
-                <p>{autumn.ratingTwo} ⭐</p>
+            <div className="autumn-container">
+            <div className="header-footer">
+              <h5>Autumn's</h5>
+            </div>
+              { this.state.autumn.map( (autumn) => { return (
+                <div className="autumn" key={autumn._id}>
+                  <div className="card">
+                    <div className="card-image waves-effect waves-block waves-light">
+                      <img className="activator" src={autumn.imgTwo}/>
+                    </div>
+
+                    <div className="card-reveal">
+                      <span className="card-title grey-text text-darken-4">{autumn.titleTwo}<i className="material-icons right">close</i></span>
+                      <p>{autumn.authorTwo}</p>
+                      <p>{autumn.infoTwo}</p>
+                      <p>{autumn.ratingTwo} ⭐</p>
+                    </div>
+                  </div>
                 </div>
+              ) } ) }
+              <div className="header-footer">
+                <h5>footer-social media?</h5>
               </div>
-            ) } ) }
-          </div>
-        </div>
+            </div>
 
-        <div className="carole-container">
-          <div className="row">
-          <h5>Carole's</h5>
-            { this.state.carole.map( (carole) => { return (
-              <div className="carole" key={carole._id}>
-                <div className="card">
-                <p>{carole.titleThree}</p>
-                <p>{carole.authorThree}</p>
-                <img src={carole.imgThree} />
-                <p>{carole.infoThree}</p>
-                <p>{carole.ratingThree} ⭐</p>
+            <div className="carole-container">
+              <div className="header-footer">
+                <h5>Carole's</h5>
+              </div>
+              { this.state.carole.map( (carole) => { return (
+                <div className="carole" key={carole._id}>
+                  <div className="card">
+                    <div className="card-image waves-effect waves-block waves-light">
+                      <img className="activator" src={carole.imgThree}/>
+                    </div>
+
+                    <div className="card-reveal">
+                      <span className="card-title grey-text text-darken-4">{carole.titleThree}<i className="material-icons right">close</i></span>
+                      <p>{carole.authorThree}</p>
+                      <p>{carole.infoThree}</p>
+                      <p>{carole.ratingThree} ⭐</p>
+                    </div>
+                  </div>
                 </div>
+              ) } ) }
+              <div className="header-footer">
+                <h5>footer-social media?</h5>
               </div>
-            ) } ) }
-          </div>
-        </div>
-
+            </div>
         </div>
 
         <h3>YOUR READING LIST</h3>
         <div className="book-container">
 
-          <div className="book-image-div">
-            <img src="https://i.imgur.com/UWxZc3X.jpg?" className="book-image"/>
-          </div>
 
-          <div className="row">
+
+          <div className="row-books">
 
             { this.state.books.map( book => { return (
 
-              <div className="card" key={book._id}>
+              <div className="card amber lighten-4" key={book._id}>
 
-                <div className="thumbnail card-image waves-effect waves-block waves-light">
+                <div className="card-image waves-effect waves-block waves-light">
                   <img className="activator" src={book.thumbnail}/>
                 </div>
 
@@ -278,7 +304,10 @@ class App extends React.Component {
 
         <div className="new-book">
           <details>
-            <summary><button className="add-button">Add a Book</button></summary>
+
+            <summary><button className="btn waves-effect waves-light" type="submit" name="action">ADD A BOOK
+            </button></summary>
+
             <form className="new-book-form" onSubmit={this.handleSubmit}>
               <label htmlFor="title">TITLE:</label>
               <br />
@@ -300,35 +329,40 @@ class App extends React.Component {
               <br />
               <input type="text" id="averageRating" onChange={this.handleChange} />
               <br />
-              <input type="submit" value="ADD A BOOK" />
+
+              <button className="btn waves-effect waves-light" type="submit" name="action">Submit BOOK
+                <i className="material-icons right">send</i>
+              </button>
+
             </form>
           </details>
         </div>
 
-        <div className="findBookContainer">
-          <div className="googleBooksInput">
+        <div className="find-book-container">
+
+          <div className="google-books-input">
             <form onSubmit={this.findBook}>
               <input type="text" onKeyUp={this.changeName}/>
-              <input type="submit" value="Find Book"/>
+              <button className="btn waves-effect waves-light" type="submit" name="action">FIND BOOK
+                <i className="material-icons right">send</i>
+              </button>
+
             </form>
           </div>
 
-          <div className="googleBook">
-            <dl>
-            <dt>Title</dt>
-            <dd>{this.state.googleTitle}</dd>
+          {
+           (displayDetailFields) ?
+            <div className="google-book">
+              <p>Title: {this.state.googleTitle}</p>
+              <p>Author(s): {this.state.googleAuthors}</p>
+              <p>Description: {this.state.googleDescription}</p>
+              <p>Rating: {this.state.googleAverageRating} ⭐</p>
+            </div>
+          : ""
+         }
 
-            <dt>Author(s)</dt>
-            <dd>{this.state.googleAuthors}</dd>
-
-            <dd><img src={this.state.googleImage} /></dd>
-
-            <dt>Description</dt>
-            <dd>{this.state.googleDescription}</dd>
-
-            <dt>Rating</dt>
-            <dd>{this.state.googleAverageRating} ⭐</dd>
-            </dl>
+          <div className="google-book-image">
+            <img src={this.state.googleImage} />
           </div>
         </div>
 
