@@ -12,6 +12,8 @@
 
 /* ========= NAV & FOOTER CONTAINER ========= */
 
+
+
 .nav-wrapper, .footer {
   margin: 1rem 0 1rem 0;
   flex-direction: row;
@@ -21,13 +23,20 @@
   justify-content: space-around;
   vertical-align: middle;
   align-items: flex-start;
-
 }
 
-.nav-button {
+.nav-button, .nav-button-two {
   background-color: #ad372a;
   color: #dbbe9e;
+  border: none;
+  padding: 10px;
+  width: 100px;
 }
+
+.nav-button-two{
+  margin-left: 10px;
+}
+
 
 h1 {
   margin: 0;
@@ -43,6 +52,7 @@ h1 {
   color: black;
   font-weight: bold;
   justify-content: space-evenly;
+
 }
 
 .alison-container {
@@ -50,8 +60,11 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  border: 5px solid black;
+  padding: 5px;
+  /* border: 5px solid black;
+  background-color: whitesmoke; */
   width: 33%;
+
 }
 
 .autumn-container {
@@ -59,7 +72,8 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  border: 5px solid black;
+  padding: 5px;
+  /* border: 5px solid black; */
   width: 33%;
 }
 
@@ -68,7 +82,8 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  border: 5px solid black;
+  padding: 5px;
+  /* border: 5px solid black; */
   width: 33%;
 }
 
@@ -76,16 +91,19 @@ h1 {
   width: 100%;
 }
 
+
+
 /* ========= BOOK CONTAINER ========= */
 
 /* book container has image and row as its flex elements */
 /* row and image tak 50% of book container */
 /* row is flexed with all the books */
-.book-container {
+/* .book-container {
   background-color: #ffecb3;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
-}
+} */
 
 .book-image-div {
   height 50%;
@@ -99,7 +117,7 @@ h1 {
 }
 
 .card-image {
-  height 400px;
+  height: 300px;
   width: 200px;
   overflow: hidden;
 }
@@ -108,16 +126,17 @@ h1 {
   /* overflow: visible !important; */
 /* } */
 
-.row-books {
+.row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  align-content: center;
+  padding: 10px;
 }
 
 .thumbnail {
-  height 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   border-radius: 5%;
 }
 
@@ -128,15 +147,28 @@ h1 {
   background-color: #ffecb3;
 }
 
-/* ========= FIND BOOK CONTAINER ========= */
-input {
-  background-color: red;
+summary{
+  background-color: #28a39b;
+  color: white;
+  padding: 10px;
+  width: 150px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+
 }
+
+.new-book-form{
+  margin-bottom: 10px;
+}
+/* ========= FIND BOOK CONTAINER ========= */
+
 
 .find-book-container {
   display: flex;
   flex-direction: row;
-  background-color: #7fb7de;
+  justify-content: flex-start;
+
+  padding: 20px;
 }
 
 .google-books-input {
