@@ -137,7 +137,7 @@ class App extends React.Component {
             <h1>BOOKS</h1>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><button className="nav-button">Sign-in</button></li>
-              <li><button className="nav-button">Sign-up</button></li>
+              <li><button className="nav-button-two">Sign-up</button></li>
             </ul>
           </div>
         </nav>
@@ -223,11 +223,11 @@ class App extends React.Component {
         </div>
 
         <h3>YOUR READING LIST</h3>
-        <div className="book-container">
 
 
 
-          <div className="row-books">
+
+          <div className="row">
 
             { this.state.books.map( book => { return (
 
@@ -299,14 +299,14 @@ class App extends React.Component {
                 </div>
               </div>
             ) } ) }
-          </div>
+
         </div>
 
         <div className="new-book">
           <details>
 
-            <summary><button className="btn waves-effect waves-light" type="submit" name="action">ADD A BOOK
-            </button></summary>
+            <summary>ADD A BOOK
+            </summary>
 
             <form className="new-book-form" onSubmit={this.handleSubmit}>
               <label htmlFor="title">TITLE:</label>
@@ -338,7 +338,11 @@ class App extends React.Component {
           </details>
         </div>
 
+        <h3>Search for a Book</h3>
+
         <div className="find-book-container">
+
+
 
           <div className="google-books-input">
             <form onSubmit={this.findBook}>
