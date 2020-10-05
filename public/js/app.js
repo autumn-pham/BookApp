@@ -31,7 +31,7 @@ class App extends React.Component {
     ratingThree: ''
   }
   handleChange = event => {
-    this.setState({ [event.target.id]: event.target.value })
+    this.setState({[event.target.id]: event.target.value})
   }
   handleSubmit = event => {
     event.preventDefault()
@@ -148,25 +148,29 @@ class App extends React.Component {
           <div className="row-staff-picks">
 
             <div className="alison-container">
-            <div className="header-card">
-              <h5>Alison's</h5>
-            </div>
-              { this.state.alison.map( (alison) => { return (
-                <div className="alison" key={alison._id}>
-                  <div className="card">
-                    <div className="card-image waves-effect waves-block waves-light">
-                      <img className="activator" src={alison.imgOne}/>
-                    </div>
+              <div className="header-card">
+                <h5>Alison's</h5>
+              </div>
+                { this.state.alison.map( (alison) => { return (
+                  <div className="alison" key={alison._id}>
+                    <div className="card z-depth-5">
+                      <div className="card-image waves-effect waves-block waves-light">
+                        <img className="activator" src={alison.imgOne}/>
+                      </div>
 
-                    <div className="card-reveal">
-                      <span className="card-title grey-text text-darken-4">{alison.titleOne}<i className="material-icons right">close</i></span>
-                      <p>{alison.authorOne}</p>
-                      <p>{alison.infoOne}</p>
-                      <p>{alison.ratingOne} ⭐</p>
+                      <div className="card-reveal">
+                        <span className="card-title grey-text text-darken-4">{alison.titleOne}<i className="material-icons right">close</i></span>
+                        <p>{alison.authorOne}</p>
+                        <p>{alison.infoOne}</p>
+                        <p>{alison.ratingOne} ⭐</p>
+                      </div>
                     </div>
                   </div>
+                ) } ) }
+                <div className="chip">
+                  <img src={"https://i.ibb.co/R9v3Vyv/Image-7-8-20-at-1-59-PM.jpg"} alt="Contact Alison"/>
+                  Alison
                 </div>
-              ) } ) }
             </div>
 
             <div className="autumn-container">
@@ -175,7 +179,7 @@ class App extends React.Component {
             </div>
               { this.state.autumn.map( (autumn) => { return (
                 <div className="autumn" key={autumn._id}>
-                  <div className="card">
+                  <div className="card z-depth-5">
                     <div className="card-image waves-effect waves-block waves-light">
                       <img className="activator" src={autumn.imgTwo}/>
                     </div>
@@ -189,6 +193,10 @@ class App extends React.Component {
                   </div>
                 </div>
               ) } ) }
+              <div className="chip">
+                <img src={"https://i.ibb.co/kyhtxWx/A-Pham-headshot.jpg"} alt="Contact Autumn"/>
+                Autumn
+              </div>
             </div>
 
             <div className="carole-container">
@@ -197,7 +205,7 @@ class App extends React.Component {
               </div>
               { this.state.carole.map( (carole) => { return (
                 <div className="carole" key={carole._id}>
-                  <div className="card">
+                  <div className="card z-depth-5">
                     <div className="card-image waves-effect waves-block waves-light">
                       <img className="activator" src={carole.imgThree}/>
                     </div>
@@ -211,19 +219,19 @@ class App extends React.Component {
                   </div>
                 </div>
               ) } ) }
+              <div className="chip">
+                <img src={"https://i.imgur.com/gq5Qmc8.jpg"} alt="Contact Carole"/>    Carole
+              </div>
             </div>
         </div>
 
         <h3>YOUR READING LIST</h3>
 
-
-
-
           <div className="row">
 
             { this.state.books.map( book => { return (
 
-              <div className="card amber lighten-4" key={book._id}>
+              <div className="card" key={book._id}>
 
                 <div className="card-image waves-effect waves-block waves-light">
                   <img className="activator" src={book.thumbnail}/>
@@ -234,7 +242,6 @@ class App extends React.Component {
                   <p>{book.authors} </p>
                   <p>{book.description} </p>
                   <p>Average Rating: {book.averageRating} ⭐</p>
-
                     <details>
                       <summary>EDIT</summary>
                       <form id={book._id} onSubmit={this.updateBook}>
@@ -281,11 +288,16 @@ class App extends React.Component {
                         onChange={this.handleChange}
                         value={this.state.averageRating}
                       />
-                      <input type="submit" value="UPDATE" />
+
+                      <button className="btn waves-effect waves-light buttons-edit" type="submit" name="action">UPDATE
+                        <i className="material-icons right">send</i>
+                      </button>
+
                     </form>
                   </details>
-                  <button value={book._id} onClick={this.deleteBook}>
-                    DELETE
+
+                  <button value={book._id} onClick={this.deleteBook} className="btn waves-effect waves-light buttons-edit" type="submit" name="action">DELETE
+                    <i className="material-icons right">send</i>
                   </button>
 
                 </div>
@@ -330,11 +342,9 @@ class App extends React.Component {
           </details>
         </div>
 
-        <h3>Search for a Book</h3>
+        <h3>SEARCH FOR A BOOK</h3>
 
         <div className="find-book-container">
-
-
 
           <div className="google-books-input">
             <form onSubmit={this.findBook}>
@@ -342,7 +352,6 @@ class App extends React.Component {
               <button className="btn waves-effect waves-light" type="submit" name="action">FIND BOOK
                 <i className="material-icons right">send</i>
               </button>
-
             </form>
           </div>
 
@@ -365,11 +374,8 @@ class App extends React.Component {
 
         <div className="footer">
           <a href="h#"><i className="fab fa-facebook-square fa-3x fa-fw"></i></a>
-
           <a href="#" target="_top"><i className="fas fa-envelope fa-3x fa-fw" target="_blank"></i></a>
-
           <a href="#" target="_blank"><i className="fab fa-instagram-square fa-3x fa-fw"></i></a>
-
           <a href="#" target="_blank"><i className="fab fa-twitter-square fa-3x fa-fw"></i></a>
         </div>
 
