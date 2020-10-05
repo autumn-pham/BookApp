@@ -112,11 +112,13 @@ h1 {
 
 .row {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-content: center;
-  padding: 10px;
+  padding: 20px;
   background-color: whitesmoke;
+  margin-left: 10px;
+
 }
 
 .thumbnail {
@@ -139,11 +141,14 @@ summary{
   width: 150px;
   font-weight: bolder;
   margin-bottom: 10px;
+  box-shadow: 1px 1px #ccc;
 }
 
 .new-book-form{
   margin-bottom: 10px;
 }
+
+
 /* ========= FIND BOOK CONTAINER ========= */
 .find-book-container {
   display: flex;
@@ -185,4 +190,15 @@ summary{
   font-weight: bolder;
   margin-bottom: 10px;
   font-size: 9px;
+}
+
+.edit-btn{
+  background-color: #28a39b;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width:90px;
+  display: inline-block;
+  padding: 7px;
+  box-shadow: 1px 1px #ccc;
 }

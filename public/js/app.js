@@ -243,7 +243,7 @@ class App extends React.Component {
                   <p>{book.description} </p>
                   <p>Average Rating: {book.averageRating} ⭐</p>
                     <details>
-                      <summary>EDIT</summary>
+                      <summary className = "edit-btn">EDIT</summary>
                       <form id={book._id} onSubmit={this.updateBook}>
                         <label htmlFor="title">Title</label>
                         <br />
