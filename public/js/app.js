@@ -135,7 +135,7 @@ class App extends React.Component {
 
         <nav>
           <div className="nav-wrapper">
-            <h1>BOOKS</h1>
+            <h1>A Novel Idea</h1>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><button className="nav-button">Sign In</button></li>
               <li><button className="nav-button-two">Sign Up</button></li>
