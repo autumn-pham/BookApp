@@ -24,7 +24,7 @@ Unsolved problems:
 
 What went well for our group:
 -no git issues
--using trello to stay on top of tasks
+-using trello to stay on top of tasks (link to Trello: https://trello.com/b/b2nrXXrK/project-3)
 
 What was our groups biggest struggle:
 -working on code one at a time to avoid git issues
