@@ -6,7 +6,7 @@ Carole Tierney
 Project #3: MERN Stack - Group Project
 
 Link to BookApp: https://infinite-stream-72673.herokuapp.com/
-  
+
 A Novel Idea is an book that allows a user to review staff recomendation books, build and maintain their own book list and search Google Books API for a book by title. It has four models, one for the book data and one for each of the staff favorites list.
 
 Technical details:
@@ -30,7 +30,7 @@ What was our groups biggest struggle:
 -working on code one at a time to avoid git issues
 
 What was the most useful tool we relied on the most:
-- using git feature branches to keep our changes separate 
+- using git feature branches to keep our changes separate
 
 What was the most surprising aspect of working in a group/a thing (or things) you didn't anticipate:
 -not being able to all work at the same time
@@ -49,5 +49,7 @@ User Stories:
 Stretch goals:
 -multiple models
 -used materialize CSS Framework
--used figma to generate wire frame 
+-used figma to generate wire frame
 --Wire Frame:  https://www.figma.com/file/jKPEHRFRSixPAMsbbiJn5y/Book-App?node-id=0%3A1
+
+4/25/2023: Set up Heroku-22
